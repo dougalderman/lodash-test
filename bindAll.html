@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Lodash Test</title>
+</head>
+<body>
+  
+  <div class="test">
+    Click Here
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+  <script>
+    $(function() {
+      // will excute when the page is ready
+
+        var view = {
+            'label': 'docs',
+            'click': function() {
+                console.log('clicked ' + this.label);
+            }
+        };
+ 
+        _.bindAll(view, ['click']);
+        $('.test').on('click', view.click);
+
+    });
+  </script>
+</body>
+</html>

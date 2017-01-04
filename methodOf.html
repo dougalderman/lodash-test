@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Lodash Test</title>
+</head>
+<body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+  <script>
+    $(function() {
+      // will excute when the page is ready
+
+      var array = _.times(3, _.constant(_.iteratee(function() {return 5;})));
+      console.log('array', array);
+
+      var array2 = _.times(3, _.constant(_.iteratee(function() {return 12;})));
+      console.log('array', array2);
+
+      var object = { 'a': array, 'b': array, 'c': array2 };
+      console.log('object', object);
+
+      var method = _.methodOf(object);
+      console.log('method', method);
+
+      var result = _.map(['a[2]', 'c[0]'], method);
+      console.log('result', result);
+      // => [5, 12]
+
+      var result2 = _.map([['a', '2'], ['c', '0']], method);
+      console.log('result2', result2);
+      // => [5, 12]
+
+
+ });
+  </script>
+</body>
+</html>
